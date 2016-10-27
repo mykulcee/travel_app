@@ -1,0 +1,29 @@
+<head>
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+<h1>Bucketlist</h1>
+<p>Lots of interesting stuffs.</p>
+
+<style>
+  body {
+    background: <%= @color %>;
+  }
+</style>
+<container>
+      <table class="table">
+           <tr>
+             <% @destination_details.each do |key,value| %>
+                <th><%= key.titleize %></th>
+             <% end %>
+           </tr>
+           <tr>
+             <% @destination_details.each do |key,value| %>      
+               <% if value.kind_of?(Array) %>
+                   <td><%= value.join(", ") %></td>
+               <% else %>
+                  <td><%= value %></td>
+               <% end %> 
+             <% end %>
+           </tr>
+      </table>
+</container>

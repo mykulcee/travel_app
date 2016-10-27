@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+ 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+    <div>
+        <a class="navbar-brand" href="/">Travel</a>
+        <%= link_to "Travel", root_path, class: "navbar-brand" %>
+    </div>
+    <h1>My Vacation Last Summer</h1>
+    <p>I used a <%= @vehicle%> to get to <%= @destination%></p>
+    <%= link_to "Blue", about_path(color: "blue"), class: "btn btn-primary" %>
+    <%= link_to "Red", bucketlist_path(color: "red"), class: "btn btn-danger" %>
+    <%= @homestate %>
+    <ul>
+        <% @countries.each do |country| %>
+           <li><%=country %></li> 
+        <% end %>
+        
+    </ul>
+  
+    <% @travel_pics.each do |pic| %>
+        
+        <%= image_tag pic, class: "img-responsive" %>
+    <% end %>
+   <div class="container">
+    <%= yield %>
+  </div>
+</body>
+<footer>
+    <a href="about">About</a>
+    <%= link_to "About", about_path %>
+</footer>
+</html>
